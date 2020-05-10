@@ -6,6 +6,8 @@ class Event(models.Model):
     description = models.TextField(blank=True,null=True)
     start_time = models.DateTimeField()
     end_time = models.DateTimeField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
 
 # Function below to be confirmed
     @property

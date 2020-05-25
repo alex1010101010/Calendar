@@ -1,5 +1,7 @@
 from django.forms import ModelForm, DateInput
 from cal.models import Event
+from django import forms
+from django.contrib.auth.models import User
 
 class EventForm(ModelForm):
   class Meta:

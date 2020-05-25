@@ -14,7 +14,7 @@ class Calendar(HTMLCalendar):
 	# filter events by day
 	def formatday(self, day, events):
 		events_per_day = events.filter(
-			Q(start_time__day__lte=day) | Q(end_time__day__gte=day)
+			Q(start_time__day__lte=day) & Q(end_time__day__gte=day) #Q something | Q something means "OR"
 		)
 		events_per_day = sorted(events_per_day, key=lambda x: x.title)
 		d = ''

@@ -2,16 +2,25 @@ from datetime import datetime, timedelta, date
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect
 from django.views import generic
-from django.urls import reverse
+from django.urls import reverse, reverse_lazy
 from django.utils.safestring import mark_safe
 import calendar
-
 from .models import *
 from .utils import Calendar
 from .forms import EventForm
+from django.contrib.auth.decorators import login_required
+
+
+@login_required
+def dashboard(request):
+    return render(request,
+    'cal/dashboard.html',
+    {'section': 'dashboard'})
 
 def index(request):
     return HttpResponse('hello')
+
+
 
 class CalendarView(generic.ListView):
     model = Event

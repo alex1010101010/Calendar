@@ -31,13 +31,13 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
+    'cal.apps.CalConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'cal.apps.CalConfig',
+    'django.contrib.admin'
 ]
 
 MIDDLEWARE = [
@@ -122,3 +122,8 @@ USE_TZ = True
 STATIC_ROOT = os.path.join(BASE_DIR, 'static').replace('\\', '/')
 # URL that your STATIC files will be accessible through the browser.
 STATIC_URL = '/static/'
+
+LOGIN_REDIRECT_URL = '/calendar/'
+LOGOUT_REDIRECT_URL = '/calendar/'
+LOGIN_URL = '/login'
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

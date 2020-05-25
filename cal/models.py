@@ -9,7 +9,7 @@ class Event(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
 
-# Function below to be confirmed
+# Function below creates links using titles and takes you to the specific event using event.id
     @property
     def get_html_url(self):
         url = reverse('cal:event_edit', args=(self.id,))
